@@ -1,0 +1,141 @@
+/* GENERAL */
+body {
+    margin: 0;
+    font-family: 'Poppins', Arial, sans-serif;
+    background: radial-gradient(circle at top, #111, #000);
+    color: white;
+    overflow-x: hidden;
+    transition: background 1s ease;
+}
+
+/* LUXURY MOVING BACKGROUND */
+body::before {
+    content: "";
+    position: fixed;
+    width: 200%;
+    height: 200%;
+    background-image: radial-gradient(red 1px, transparent 1px);
+    background-size: 50px 50px;
+    animation: moveBg 60s linear infinite;
+    opacity: 0.2;
+    z-index: -1;
+}
+
+@keyframes moveBg {
+    from { transform: translate(0,0); }
+    to { transform: translate(-500px,-500px); }
+}
+
+/* NAVBAR */
+.navbar {
+    position: sticky;
+    top: 0;
+    background: black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    border-bottom: 1px solid red;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(255,0,0,0.3);
+}
+
+.navbar h2 { color: red; letter-spacing: 2px; }
+.navbar ul { list-style: none; display: flex; gap: 25px; }
+.navbar a {
+    text-decoration: none; color: white; font-weight: 500;
+    position: relative; transition: 0.3s;
+}
+.navbar a::after {
+    content: ""; position: absolute; left: 0; bottom: -3px; width: 0%; height: 2px; background: red; transition: 0.3s;
+}
+.navbar a:hover::after { width: 100%; }
+.navbar a:hover { color: red; text-shadow: 0 0 10px red; }
+
+/* HEADER */
+header { text-align: center; padding: 50px; background: linear-gradient(135deg, #ff0000, #000); box-shadow: 0 5px 25px rgba(255,0,0,0.5); position: relative; overflow: hidden; }
+header h1 { font-size: 55px; letter-spacing: 3px; text-shadow: 0 0 20px red; animation: fadeInUp 1.5s ease; }
+header .tagline { font-size: 20px; letter-spacing: 2px; margin-top: 10px; position: relative; }
+header .tagline::after { content: ""; display: block; width: 60px; height: 3px; background: red; margin: 10px auto 0; border-radius: 3px; animation: pulse 2s infinite; }
+
+@keyframes pulse { 0%,100% { transform: scaleX(1); opacity:1;} 50% { transform: scaleX(1.3); opacity:0.6; } }
+@keyframes fadeInUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
+
+/* CAR SECTION */
+.cars { display:flex; justify-content:center; gap:40px; padding:60px; flex-wrap:wrap; animation: fadeIn 1.5s ease; }
+@keyframes fadeIn { from {opacity:0; transform:translateY(40px);} to {opacity:1; transform:translateY(0);} }
+
+/* CAR CARD */
+.car-card {
+    background: linear-gradient(145deg, #1a1a1a, #0a0a0a);
+    border-radius: 20px;
+    padding: 20px;
+    width: 300px;
+    text-align: center;
+    transition: 0.4s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    text-decoration: none;
+    color: white;
+}
+.car-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 20px;
+    padding: 2px;
+    background: linear-gradient(45deg, red, transparent, red);
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+}
+.car-card:hover { transform: translateY(-10px) scale(1.05); box-shadow: 0 0 50px rgba(255,0,0,0.8),0 0 80px rgba(255,0,0,0.5);}
+.car-card img { width:100%; border-radius:12px; transition: transform 0.4s, box-shadow 0.4s; }
+.car-card:hover img { transform: scale(1.12) rotate(1deg); box-shadow:0 0 30px rgba(255,0,0,0.5); }
+.car-card h2 { margin-top:15px; font-size:28px; color:white; text-shadow:0 0 10px red; }
+.car-card .view-details { display:block; margin-top:10px; font-size:16px; color:red; opacity:0; transition:0.3s;}
+.car-card:hover .view-details { opacity:1; }
+
+/* FOOTER */
+footer { text-align:center; padding:25px; background:black; border-top:1px solid red; }
+footer .socials { margin-top:10px; display:flex; justify-content:center; gap:20px;}
+footer .social-icon { font-size:28px; color:white; transition:0.3s;}
+footer .social-icon:hover { color:red; }
+.about-link { margin-top:15px; }
+.about-link a { color:white; text-decoration:none; font-weight:500; transition:0.3s; }
+.about-link a:hover { text-shadow:0 0 5px red; }
+
+/* ABOUT FOUNDER SECTION - PROFESSIONAL */
+.about-founder { text-align:center; padding:60px 20px; background:#111; }
+.about-founder h2 { font-size:36px; color:#fff; margin-bottom:40px; font-weight:600; }
+.founder-card { display:inline-block; max-width:350px; }
+.founder-card img { width:160px; height:160px; border-radius:50%; border:none; box-shadow:0 4px 20px rgba(0,0,0,0.5); margin-bottom:20px; object-fit:cover; }
+.founder-card h3 { font-size:24px; color:#fff; margin:0; font-weight:600; }
+.founder-card p { color:#ccc; margin:10px 0; line-height:1.5; font-size:16px; }
+
+/* BACK TO HOME ICON - IMPROVED */
+.back-home {
+    position: fixed;
+    top: 120px; /* slightly lower than navbar to avoid overlap */
+    left: 30px; /* add some left margin */
+    font-size: 18px;
+    color: #fff;
+    text-decoration: none;
+    background: rgba(255, 255, 255, 0.08); /* subtle background */
+    padding: 10px 14px; /* slightly bigger padding */
+    border-radius: 10px;
+    transition: 0.3s;
+    z-index: 1000;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.4); /* subtle shadow for floating effect */
+}
+
+.back-home i {
+    margin-right: 8px;
+}
+
+.back-home:hover {
+    background: rgba(255, 255, 255, 0.18);
+    color: #ff0000;
+}
+

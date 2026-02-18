@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>TOYOTA SUPRA</title>
+<meta charset="UTF-8">
+
+<link rel="stylesheet" href="css/style.css">
+
+<style>
+.car-details { text-align:center; padding:40px; }
+
+.main-img {
+    width:500px;
+    border-radius:15px;
+    box-shadow:0 0 25px red;
+}
+
+.price {
+    font-size:30px;
+    color:#00ffcc;
+    font-weight:bold;
+    margin:20px 0;
+}
+
+.specs { margin-top:30px; font-size:20px; }
+
+.gallery {
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    margin-top:40px;
+}
+
+.gallery img {
+    width:250px;
+    border-radius:10px;
+    transition:0.3s;
+}
+
+.gallery img:hover { transform:scale(1.1); }
+
+.buttons { margin-top:40px; }
+
+.back-btn, .video-btn {
+    display:inline-block;
+    padding:15px 30px;
+    margin:10px;
+    color:white;
+    text-decoration:none;
+    border-radius:10px;
+    font-size:18px;
+}
+
+.back-btn { background:red; }
+.back-btn:hover { background:darkred; }
+
+.video-btn { background:#00ccff; }
+.video-btn:hover { background:#0099cc; }
+
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>TOYOTA SUPRA</h1>
+    <p>King of Power</p>
+</header>
+
+<section class="car-details">
+
+    <img src="images/SupraLogo.webp" class="main-img">
+
+    <div class="price">💰 Price: ₹90 Lakh</div>
+
+    <div class="specs">
+        <p>⚡ Top Speed: 250 KM/H</p>
+        <p>🚀 Engine: 3.0L Twin-Turbo Inline-6</p>
+        <p>🏎 0-100 KM/H: 4.1 seconds</p>
+    </div>
+
+    <h2>Gallery</h2>
+
+    <div class="gallery">
+        <img src="images/Supra1.jpg">
+        <img src="images/Supra2.jpg">
+        <img src="images/Supra3.jpg">
+    </div>
+
+    <div class="buttons">
+        <a href="index.html" class="back-btn">⬅ Back to Home</a>
+
+        <!-- WATCH VIDEO BUTTON -->
+        <a href="supra-video.html" target="_blank" class="video-btn">
+            🎬 Watch Video
+        </a>
+    </div>
+
+</section>
+
+</body>
+</html>
