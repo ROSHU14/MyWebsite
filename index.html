@@ -42,7 +42,9 @@
         <img src="images/lamborghini.jpg" alt="Lamborghini">
         <h2>Lamborghini</h2>
         <p>Extreme speed and aggressive design.</p>
-        <button class="test-drive">Book Test Drive</button>
+        <button class="test-drive" onclick="event.preventDefault(); openPopup();">
+            Book Test Drive
+        </button>
         <span class="view-details">View Details →</span>
     </a>
 
@@ -51,7 +53,9 @@
         <img src="images/Supra.jpg" alt="Supra">
         <h2>Supra</h2>
         <p>Legendary Japanese performance car.</p>
-        <button class="test-drive">Book Test Drive</button>
+        <button class="test-drive" onclick="event.preventDefault(); openPopup();">
+            Book Test Drive
+        </button>
         <span class="view-details">View Details →</span>
     </a>
 
@@ -60,11 +64,34 @@
         <img src="images/Ferrari.jpg" alt="Ferrari">
         <h2>Ferrari</h2>
         <p>Italian luxury and racing power.</p>
-        <button class="test-drive">Book Test Drive</button>
+        <button class="test-drive" onclick="event.preventDefault(); openPopup();">
+            Book Test Drive
+        </button>
         <span class="view-details">View Details →</span>
     </a>
 
 </section>
+
+<!-- POPUP -->
+<div class="popup" id="popup">
+    <div class="popup-content">
+
+        <span class="close" onclick="closePopup()">×</span>
+
+        <h2>Book Test Drive</h2>
+
+        <form id="testForm">
+            <input type="text" placeholder="Full Name" required>
+            <input type="email" placeholder="Email" required>
+            <input type="tel" placeholder="Phone Number" required>
+
+            <button type="submit">Submit</button>
+        </form>
+
+        <p id="successMsg">✅ Booking Successful! We will contact you soon.</p>
+
+    </div>
+</div>
 
 <!-- FOOTER -->
 <footer>
@@ -78,6 +105,28 @@
         <a href="about.html">About</a>
     </div>
 </footer>
+
+<!-- SCRIPT -->
+<script>
+function openPopup(){
+    document.getElementById("popup").style.display="flex";
+    document.getElementById("successMsg").style.display="none";
+}
+
+function closePopup(){
+    document.getElementById("popup").style.display="none";
+}
+
+document.getElementById("testForm").addEventListener("submit",function(e){
+    e.preventDefault();
+    document.getElementById("successMsg").style.display="block";
+
+    setTimeout(()=>{
+        closePopup();
+        this.reset();
+    },2000);
+});
+</script>
 
 </body>
 </html>
